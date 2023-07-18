@@ -1,31 +1,7 @@
-// import React from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-// import InputPage from './InputPage';
-// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <h1>MainPage</h1>
-//       <Router>
-//         <Switch>
-//           <Route exact path="/InputPage">
-//             <InputPage />
-//           </Route>
-//         </Switch>
-//       </Router>
-//     </div>
-
-//   );
-// }
-
-// export default App;
-
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import MainPage from './page/MainPage';
-import InputPage from './page/InputPage';
+import MainPage from './components/MainPage';
+import InputPage from './components/InputPage';
 
 function App() {
   return (
@@ -41,7 +17,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/InputPage" element={<InputPage />} />
+          <Route path="/Input" element={<InputPage />} />
         </Routes>
       </div>
     </Router>
