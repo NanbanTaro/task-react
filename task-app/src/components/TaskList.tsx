@@ -1,22 +1,22 @@
 import React, {useState, useEffect} from "react";
-import axios from "axios";
 import TaskListDataType from "../models/TaskListApiResponse";
+import instance from "../api/axios";
+import { list } from "../api/requests";
 
 function TaskList() {
     const [tasks, setTask] = useState<TaskListDataType | null>(null);
 
     useEffect(() => {
-        axios.get('http://localhost:3000/task/list')
-            .then(response => {
-                // レスポンスの処理
-                console.log(response.data);
+        const fetchTask =async () => {
+            try {
+                const response = await instance.get<TaskListDataType>(list);
                 setTask(response.data);
-            })
-            .catch(error => {
-                // エラーハンドリング
-                console.error(error);
-            });
-    }, [])
+            } catch (error) {
+                console.error(`ERROR: ${error}`);
+            }
+        };
+        fetchTask();
+    }, []);
 
     return (
         <div>
